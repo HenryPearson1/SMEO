@@ -1,0 +1,6 @@
+framework module Pods_Social_Media_Event_Organiser_v3_XC9 {
+  umbrella header "Pods-Social Media Event Organiser v3 XC9-umbrella.h"
+
+  export *
+  module * { export * }
+}
