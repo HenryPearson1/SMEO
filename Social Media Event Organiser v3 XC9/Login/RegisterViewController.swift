@@ -67,6 +67,10 @@ class RegisterViewController: UIViewController {
                 }
                 else{
                     print("Registration Success")
+                    self.emailField.text = ""
+                    self.passField.text = ""
+                    self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
+                    
                     
                 }
             }
