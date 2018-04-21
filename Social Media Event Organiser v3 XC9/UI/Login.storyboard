@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QaU-aq-1zc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QaU-aq-1zc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main-->
         <scene sceneID="VvP-3i-FxJ">
@@ -162,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="-1220" y="191.1544227886057"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="zBD-QZ-Q89">
             <objects>
-                <viewController id="mQ9-c9-Mmf" sceneMemberID="viewController">
+                <viewController id="mQ9-c9-Mmf" customClass="RegisterViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C8P-Y3-fIq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,6 +187,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="RegisterButton:" destination="mQ9-c9-Mmf" eventType="touchUpInside" id="Oaa-Mo-g3x"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-bH-NYx">
                                 <rect key="frame" x="75" y="152" width="226" height="88"/>
@@ -222,6 +230,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VW3-DR-Hnv"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="vJL-zU-zow" id="pk5-M8-plP"/>
+                        <outlet property="passField" destination="ObU-pE-mao" id="sor-HE-b7a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXY-FX-GfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
