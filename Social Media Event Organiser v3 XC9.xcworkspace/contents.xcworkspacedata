@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Social Media Event Organiser v3 XC9/Classes/Event.swift">
+   </FileRef>
+   <FileRef
       location = "group:Social Media Event Organiser v3 XC9.xcodeproj">
    </FileRef>
    <FileRef
