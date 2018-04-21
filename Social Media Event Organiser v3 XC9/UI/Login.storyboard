@@ -160,7 +160,7 @@
                         <outlet property="emailTextField" destination="tZx-Zi-KdU" id="Y2W-gd-FIe"/>
                         <outlet property="passwordTextField" destination="Wsl-FI-suj" id="aMr-Xq-ykk"/>
                         <segue destination="mQ9-c9-Mmf" kind="show" identifier="toRegisterView" id="OIa-3F-fZB"/>
-                        <segue destination="dpG-UY-lIc" kind="show" identifier="toRegisterView" id="K7i-eX-tHa"/>
+                        <segue destination="dpG-UY-lIc" kind="show" id="xXF-Hi-3qh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNT-us-YpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
