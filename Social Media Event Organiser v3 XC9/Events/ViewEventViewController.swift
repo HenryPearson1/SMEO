@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewEventViewController: UIViewController {
-
+    
+    // get info from event record
+    var event: Event!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

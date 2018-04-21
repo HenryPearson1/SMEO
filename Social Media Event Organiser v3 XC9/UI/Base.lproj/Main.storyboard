@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,13 +89,39 @@
                     <view key="view" contentMode="scaleToFill" id="y8D-K4-cHG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="QsT-hv-lqo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="554" id="upW-vU-Oeh"/>
+                                    <constraint firstAttribute="width" constant="375" id="wr3-Ag-3aV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="bottom" secondItem="y8D-K4-cHG" secondAttribute="bottomMargin" id="0Pb-dm-RgU"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="bottom" secondItem="euI-hb-XHn" secondAttribute="bottom" id="2lw-b5-7xu"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="top" secondItem="euI-hb-XHn" secondAttribute="top" id="KJF-6F-eqR"/>
+                            <constraint firstAttribute="trailing" secondItem="QsT-hv-lqo" secondAttribute="trailing" id="Ps3-D9-vCB"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="bottom" secondItem="euI-hb-XHn" secondAttribute="bottom" id="W08-rO-ZEU"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="leading" secondItem="y8D-K4-cHG" secondAttribute="leading" id="WEj-Co-d04"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="top" secondItem="y8D-K4-cHG" secondAttribute="top" constant="64" id="WtT-ec-5We"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="leading" secondItem="y8D-K4-cHG" secondAttribute="leading" id="bwo-rJ-GP0"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="leading" secondItem="euI-hb-XHn" secondAttribute="leading" id="f1a-q9-bSZ"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="top" secondItem="y8D-K4-cHG" secondAttribute="topMargin" id="fKq-7E-gqW"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="trailing" secondItem="euI-hb-XHn" secondAttribute="trailing" id="h47-wg-MAK"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="leading" secondItem="y8D-K4-cHG" secondAttribute="leading" id="n3h-Ur-a4m"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="centerX" secondItem="y8D-K4-cHG" secondAttribute="centerX" id="nqI-SC-4Iv"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="top" secondItem="euI-hb-XHn" secondAttribute="top" id="oPw-2Y-Nq1"/>
+                            <constraint firstItem="QsT-hv-lqo" firstAttribute="top" secondItem="y8D-K4-cHG" secondAttribute="top" constant="64" id="qPD-ER-swj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="euI-hb-XHn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5M-F1-DKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="708"/>
+            <point key="canvasLocation" x="1548" y="707.49625187406298"/>
         </scene>
         <!--Add Event View Controller-->
         <scene sceneID="9kR-ew-qaH">
@@ -103,13 +130,41 @@
                     <view key="view" contentMode="scaleToFill" id="mDE-o6-bvd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="1Sz-VK-Mvh">
+                                <rect key="frame" x="0.0" y="48" width="375" height="570"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="6U3-y1-HT9"/>
+                                    <constraint firstAttribute="height" constant="570" id="whl-sm-0DM"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="bottom" secondItem="JnW-x6-HLL" secondAttribute="bottom" id="1wo-uJ-pEo"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="bottom" secondItem="mDE-o6-bvd" secondAttribute="bottomMargin" id="3Kd-gh-v6L"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="leading" secondItem="JnW-x6-HLL" secondAttribute="leading" id="54K-yS-OR4"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="top" secondItem="mDE-o6-bvd" secondAttribute="topMargin" constant="-16" id="5WS-lw-Qa7"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="leading" secondItem="mDE-o6-bvd" secondAttribute="leading" id="A7U-gt-v1J"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="centerX" secondItem="mDE-o6-bvd" secondAttribute="centerX" id="Fd6-MQ-DyZ"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="leading" secondItem="mDE-o6-bvd" secondAttribute="leading" id="GUQ-14-OR9"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="leading" secondItem="mDE-o6-bvd" secondAttribute="leading" id="VeE-yg-t4X"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="top" secondItem="mDE-o6-bvd" secondAttribute="top" constant="48" id="ZfE-EV-qgO"/>
+                            <constraint firstAttribute="trailing" secondItem="1Sz-VK-Mvh" secondAttribute="trailing" id="bY3-kb-qcy"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="top" secondItem="mDE-o6-bvd" secondAttribute="top" constant="48" id="eov-k5-SOU"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="centerY" secondItem="mDE-o6-bvd" secondAttribute="centerY" id="mW3-YW-bia"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="trailing" secondItem="JnW-x6-HLL" secondAttribute="trailing" id="vsz-x1-6x9"/>
+                            <constraint firstItem="1Sz-VK-Mvh" firstAttribute="bottom" secondItem="JnW-x6-HLL" secondAttribute="bottom" id="zfT-Jv-yfz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JnW-x6-HLL"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvI-rs-nBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="-35"/>
+            <point key="canvasLocation" x="2440.8000000000002" y="-35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wallpaper" width="1242" height="2208"/>
+    </resources>
 </document>
