@@ -11,5 +11,9 @@ import Foundation
 class User {
     var name: String
     var bio: String
-    var events: [Event]
+    var events = [Event]()
+    init() {
+        name = ""
+        bio = ""
+    }
 }
