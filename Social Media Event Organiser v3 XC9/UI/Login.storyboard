@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="-1220" y="191.1544227886057"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="zBD-QZ-Q89">
             <objects>
-                <viewController id="mQ9-c9-Mmf" sceneMemberID="viewController">
+                <viewController id="mQ9-c9-Mmf" customClass="RegisterViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C8P-Y3-fIq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,6 +187,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpAction:" destination="mQ9-c9-Mmf" eventType="touchUpInside" id="ns5-Bi-wxg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-bH-NYx">
                                 <rect key="frame" x="75" y="152" width="226" height="88"/>
@@ -200,8 +203,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObU-pE-mao">
-                                <rect key="frame" x="50" y="333" width="275" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObU-pE-mao">
+                                <rect key="frame" x="50" y="331" width="275" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -227,6 +230,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VW3-DR-Hnv"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="vJL-zU-zow" id="EFw-o9-SHR"/>
+                        <outlet property="passwordTextField" destination="ObU-pE-mao" id="O6n-tc-u5v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXY-FX-GfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

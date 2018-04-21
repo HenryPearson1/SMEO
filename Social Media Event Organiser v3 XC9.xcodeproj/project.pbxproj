@@ -105,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040994EF208B2E3D0022E0F6 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				0451B9D52089CB3A00AF63F5 /* EventTableViewController.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		0451B98F2089C8F500AF63F5 = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +189,9 @@
 		04EB60A02089F016000EB6C4 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				0451B9D52089CB3A00AF63F5 /* EventTableViewController.swift */,
-				04EB60A22089F04A000EB6C4 /* AddEventViewController.swift */,
+				040994EF208B2E3D0022E0F6 /* TableView */,
 				04EB60A42089F05B000EB6C4 /* ViewEventViewController.swift */,
+				04EB60A22089F04A000EB6C4 /* AddEventViewController.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
