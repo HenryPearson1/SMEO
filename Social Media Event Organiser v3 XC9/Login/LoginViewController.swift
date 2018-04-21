@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     print("Login Success")
-                    self.performSegue(withIdentifier: "toChat", sender: nil)
+                    self.performSegue(withIdentifier: "toMainStoryboard", sender: nil)
                     self.valid = false
                 }
                 
