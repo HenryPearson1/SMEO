@@ -9,15 +9,18 @@
 import Foundation
 
 
-struct Event {
+class Event {
     
     var name: String
     var description: String
     var location: String 
     var time: String
-    var going = [String]() //Needs changing once user class is ready
-    
-    func addEvent(inputUser: User) {
-        going.append(inputUser)
+    var going = [User]()
+    init(inputName: String, inputDescription: String, inputLocation: String, inputTime: String) {
+        name = inputName
+        description = inputDescription
+        location = inputLocation
+        time = inputTime
     }
+
 }
