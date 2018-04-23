@@ -8,12 +8,13 @@
 
 import Foundation
 
+
 struct Event {
     
     var name: String
     var description: String
     var location: String 
     var time: String
-    var going = [User]()
+    var going = [String]() //Needs changing once user class is ready
     
 }

@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--initialTabBarController-->
+        <!--initialNavController-->
         <scene sceneID="VvP-3i-FxJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="initialTabBarController" id="dpG-UY-lIc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="initialNavController" id="dpG-UY-lIc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmE-bi-O63" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-586" y="251"/>
