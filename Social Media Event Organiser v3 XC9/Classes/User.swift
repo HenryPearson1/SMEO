@@ -25,6 +25,10 @@ class User {
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        eventGoing.addEvent(inputUser: self)
+>>>>>>> parent of 9fd0826... Fix merge conflict
         eventGoing.going.append(self)
     }
 <<<<<<< HEAD

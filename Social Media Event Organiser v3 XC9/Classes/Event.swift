@@ -10,6 +10,10 @@ import Foundation
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+struct Event {
+>>>>>>> parent of 9fd0826... Fix merge conflict
 class Event {
 =======
 struct Event {
