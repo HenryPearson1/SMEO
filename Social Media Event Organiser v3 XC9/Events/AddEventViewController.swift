@@ -19,9 +19,8 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var locText: UITextField!
     @IBOutlet weak var timeText: UITextField!
 
-    
-    @IBAction func addEvent(_ sender: Any) {
-        
+    @IBAction func saveAction(_ sender: Any)
+    {
         let name = nametext.text!
         let description = descText.text!
         let location = locText.text!
@@ -30,7 +29,7 @@ class AddEventViewController: UIViewController {
         
         let specificEventRef = ref?.child("Events").child(name)
         let eventListRef = ref?.child("eventNameList")
-
+        
         let newEvent = Event(inputName: name, inputDescription: description, inputLocation: location, inputTime: time)
         let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
         
@@ -40,7 +39,11 @@ class AddEventViewController: UIViewController {
         
         eventListRef?.child(name).setValue(name)
         specificEventRef?.setValue(eventDict)
+        
+        navigationController?.popToRootViewController(animated: true)
     }
+    
+    
     
     override func viewDidLoad()
     {
