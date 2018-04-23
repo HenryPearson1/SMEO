@@ -9,11 +9,23 @@
 import Foundation
 
 class User {
-    var name: String
+    // info about events
+    var email: String
+    var username: String
     var bio: String
-    var events = [Event]()
-    init() {
-        name = ""
+    var ownEvents = [Event]()
+    var goingToEvents = [Event]()
+    
+    init(inputEmail: String, inputUserName: String, inputBio: String) {
+        email = inputEmail
+        username = ""
         bio = ""
     }
+    
+    func goToEvent(eventGoing: Event) {
+        goingToEvents.append(eventGoing)
+        eventGoing.addEvent(inputUser: self)
+    }
+    
+    
 }

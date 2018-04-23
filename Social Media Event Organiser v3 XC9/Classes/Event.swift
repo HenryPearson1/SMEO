@@ -16,4 +16,7 @@ struct Event {
     var time: String
     var going = [User]()
     
+    func addEvent(inputUser: User) {
+        going.append(inputUser)
+    }
 }
