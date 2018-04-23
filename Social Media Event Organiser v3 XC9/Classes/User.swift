@@ -26,10 +26,14 @@ class User {
         goingToEvents.append(eventGoing)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         eventGoing.addEvent(inputUser: self)
 >>>>>>> parent of 9fd0826... Fix merge conflict
         eventGoing.going.append(self)
+=======
+        eventGoing.addEvent(inputUser: self)
+>>>>>>> parent of c6f3051... fixed issues
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -42,4 +46,8 @@ class User {
     
 >>>>>>> parent of 0991ade... Added Save UIBarButtonItem
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of c6f3051... fixed issues
 }
