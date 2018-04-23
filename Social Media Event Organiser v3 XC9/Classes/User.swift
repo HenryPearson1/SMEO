@@ -16,7 +16,6 @@ class User {
     var ownEvents = [Event]()
     var goingToEvents = [Event]()
     
-    
     init(inputEmail: String, inputUserName: String, inputBio: String) {
         email = inputEmail
         username = ""
@@ -25,17 +24,18 @@ class User {
     
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
+<<<<<<< HEAD
         eventGoing.going.append(self)
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+        eventGoing.addEvent(inputUser: self)
+    }
+>>>>>>> parent of ed7ab64... Merge branch 'master' of https://github.com/HenryPearson1/SMEO
     */
 =======
     
 >>>>>>> parent of 0991ade... Added Save UIBarButtonItem
     
-=======
-    
-  
->>>>>>> c6f3051ee00a3e5cedde70146f080f151c4e8d09
 }

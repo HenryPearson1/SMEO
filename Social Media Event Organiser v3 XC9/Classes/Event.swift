@@ -9,13 +9,16 @@
 import Foundation
 
 
+<<<<<<< HEAD
 class Event {
+=======
+struct Event {
+>>>>>>> parent of ed7ab64... Merge branch 'master' of https://github.com/HenryPearson1/SMEO
     
     var name: String
     var description: String
     var location: String 
     var time: String
-<<<<<<< HEAD
     var going = [String]() //Needs changing once user class is ready
     
     func addEvent(inputUser: User) {
@@ -24,6 +27,7 @@ class Event {
      }
  */
  
+<<<<<<< HEAD
 =======
     var going = [User]()
     init(inputName: String, inputDescription: String, inputLocation: String, inputTime: String) {
@@ -37,4 +41,6 @@ class Event {
 =======
     }
 >>>>>>> parent of 0991ade... Added Save UIBarButtonItem
+=======
+>>>>>>> parent of ed7ab64... Merge branch 'master' of https://github.com/HenryPearson1/SMEO
 }

@@ -31,7 +31,7 @@ class AddEventViewController: UIViewController {
         let specificEventRef = ref?.child("Events").child(name)
         let eventListRef = ref?.child("eventNameList")
 
-        let newEvent = Event(inputName: name, inputDescription: description, inputLocation: location, inputTime: time)
+        let newEvent = Event(name: name, description: description, location: location, time: time, going: [going])
         let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
         
         
