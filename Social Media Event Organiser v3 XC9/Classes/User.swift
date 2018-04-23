@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 class User {
     // info about events
@@ -25,8 +27,23 @@ class User {
     
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
-        eventGoing.going.append(self)
+        eventGoing.numberOfPeopleGoing += 1
+        var ref = Database.database().reference()
+        let specificEventPartRef = ref.child("Events").child(eventGoing.name).child("numberOfPeopleGoing")
+        specificEventPartRef.setValue(eventGoing.numberOfPeopleGoing)
     }
     
+    // uploads event to firebase
+    func createEvent(inputEvent: Event) {
+        ownEvents.append(inputEvent)
+        var ref = Database.database().reference()
+        let name = inputEvent.name
+        let eventDict = ["name": inputEvent.name, "description": inputEvent.description, "location": inputEvent.location, "time": inputEvent.time, "numberOfPeopleGoing": 0] as [String : Any]
+        let specificEventRef = ref.child("Events").child(name)
+        let eventListRef = ref.child("eventNameList")
+        eventListRef.child(name).setValue(name)
+        specificEventRef.setValue(eventDict)
+        
+    }
   
 }

@@ -22,6 +22,7 @@ class EventTableViewController: UITableViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         ref = Database.database().reference()
         
         let eventRef = ref?.child("eventNameList")
