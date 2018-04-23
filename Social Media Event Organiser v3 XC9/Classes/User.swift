@@ -26,7 +26,6 @@ class User {
     /*
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
-        eventGoing.addEvent(inputUser: self)
         eventGoing.going.append(self)
     }
 <<<<<<< HEAD
