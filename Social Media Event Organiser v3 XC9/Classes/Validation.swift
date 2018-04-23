@@ -19,7 +19,7 @@ class Validation {
     
     //Password Validation
     func isValidPass(passStr:String) -> Bool {
-        let passRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$" //Minimum six characters, at least one uppercase letter, one lowercase letter and one number
+        let passRegEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$" //Minimum six characters, at least one uppercase letter, one lowercase letter and one number
         let passTest = NSPredicate(format:"SELF MATCHES %@", passRegEx)
         return passTest.evaluate(with: passStr)
     }
