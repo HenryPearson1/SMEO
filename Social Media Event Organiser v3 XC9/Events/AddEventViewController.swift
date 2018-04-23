@@ -7,29 +7,46 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class AddEventViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var ref: DatabaseReference!
+    
+    @IBOutlet weak var nametext: UITextField!
+    @IBOutlet weak var descText: UITextField!
+    @IBOutlet weak var locText: UITextField!
+    @IBOutlet weak var timeText: UITextField!
 
-        // Do any additional setup after loading the view.
-    }
+    
+    @IBAction func addEvent(_ sender: Any) {
+        
+        let name = nametext.text!
+        let description = descText.text!
+        let location = locText.text!
+        let time = timeText.text!
+        let going = ""
+        
+        let specificEventRef = ref?.child("Events").child(name)
+        let eventListRef = ref?.child("eventNameList")
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let newEvent = Event(name: name, description: description, location: location, time: time, going: [going])
+        let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
+        
+        
+        print("struct", newEvent)
+        print("dict", eventDict)
+        
+        eventListRef?.child(name).setValue(name)
+        specificEventRef?.setValue(eventDict)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        ref = Database.database().reference()
     }
-    */
 
 }
+
