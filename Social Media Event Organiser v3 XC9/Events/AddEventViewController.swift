@@ -28,36 +28,25 @@ class AddEventViewController: UIViewController {
         let time = timeText.text!
         let going = ""
         
+        let specificEventRef = ref?.child("Events").child(name)
+        let eventListRef = ref?.child("eventNameList")
+
         let newEvent = Event(name: name, description: description, location: location, time: time, going: [going])
         let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
+        
+        
         print("struct", newEvent)
         print("dict", eventDict)
-        ref?.child("Events").setValue(eventDict)
-    }
-    
-    override func viewDidLoad() {
-        ref = Database.database().reference()
-        let eventsRef = ref?.child("Events")
-        super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        eventListRef?.child(name).setValue(name)
+        specificEventRef?.setValue(eventDict)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        ref = Database.database().reference()
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
 

@@ -12,6 +12,7 @@ class ViewEventViewController: UIViewController {
     
     // get info from event record
     var event: Event!
+    @IBOutlet weak var eventName: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
