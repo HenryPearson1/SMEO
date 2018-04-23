@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main-->
+        <!--initialTabBarController-->
         <scene sceneID="VvP-3i-FxJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="dpG-UY-lIc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="initialTabBarController" id="dpG-UY-lIc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmE-bi-O63" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-586" y="251"/>
@@ -160,7 +160,7 @@
                         <outlet property="emailTextField" destination="tZx-Zi-KdU" id="Y2W-gd-FIe"/>
                         <outlet property="passwordTextField" destination="Wsl-FI-suj" id="aMr-Xq-ykk"/>
                         <segue destination="mQ9-c9-Mmf" kind="show" identifier="toRegisterView" id="OIa-3F-fZB"/>
-                        <segue destination="dpG-UY-lIc" kind="show" id="xXF-Hi-3qh"/>
+                        <segue destination="dpG-UY-lIc" kind="show" identifier="toMainStoryboard" id="xXF-Hi-3qh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNT-us-YpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
