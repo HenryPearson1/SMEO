@@ -39,6 +39,7 @@ class AddEventViewController: UIViewController {
         specificEventRef?.setValue(eventDict)
         
         navigationController?.popToRootViewController(animated: true)
+/*
         let newEvent = Event(inputName: name, inputDescription: description, inputLocation: location, inputTime: time)
         var user = User(inputEmail: "dasfk", inputUserName: "dafskjbl", inputBio: "dasfhbj")
         user.createEvent(inputEvent: newEvent)
