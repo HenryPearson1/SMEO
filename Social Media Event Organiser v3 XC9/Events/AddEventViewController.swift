@@ -12,8 +12,6 @@ import FirebaseDatabase
 
 class AddEventViewController: UIViewController {
 
-    var ref: DatabaseReference!
-    
     @IBOutlet weak var nametext: UITextField!
     @IBOutlet weak var descText: UITextField!
     @IBOutlet weak var locText: UITextField!
@@ -27,25 +25,15 @@ class AddEventViewController: UIViewController {
         let location = locText.text!
         let time = timeText.text!
         let going = ""
-        
-        let specificEventRef = ref?.child("Events").child(name)
-        let eventListRef = ref?.child("eventNameList")
 
         let newEvent = Event(inputName: name, inputDescription: description, inputLocation: location, inputTime: time)
-        let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
-        
-        
-        print("struct", newEvent)
-        print("dict", eventDict)
-        
-        eventListRef?.child(name).setValue(name)
-        specificEventRef?.setValue(eventDict)
+        var user = User(inputEmail: "dasfk", inputUserName: "dafskjbl", inputBio: "dasfhbj")
+        user.createEvent(inputEvent: newEvent)
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        ref = Database.database().reference()
     }
 
 }
