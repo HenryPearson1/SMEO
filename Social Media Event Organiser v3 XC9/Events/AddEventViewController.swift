@@ -19,27 +19,6 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var locText: UITextField!
     @IBOutlet weak var timeText: UITextField!
 
-    @IBAction func saveAction(_ sender: Any)
-    {
-        let name = nametext.text!
-        let description = descText.text!
-        let location = locText.text!
-        let time = timeText.text!
-        let going = ""
-        
-        let specificEventRef = ref?.child("Events").child(name)
-        let eventListRef = ref?.child("eventNameList")
-        
-        let newEvent = Event(name: name, description: description, location: location, time: time, going: [going])
-        let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
-        
-        
-        print("struct", newEvent)
-        print("dict", eventDict)
-        
-        eventListRef?.child(name).setValue(name)
-        specificEventRef?.setValue(eventDict)
-    }
     
     @IBAction func addEvent(_ sender: Any) {
         

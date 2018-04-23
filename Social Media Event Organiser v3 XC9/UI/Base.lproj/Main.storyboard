@@ -343,13 +343,7 @@
                         <viewLayoutGuide key="safeArea" id="hrG-Gi-bey"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="se0-Cb-JuD"/>
-                    <navigationItem key="navigationItem" id="k5u-G9-cEi">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="i1e-Kx-DsS">
-                            <connections>
-                                <action selector="saveAction:" destination="S9r-H7-qmy" id="Yh7-Ct-3CG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="k5u-G9-cEi"/>
                     <connections>
                         <outlet property="descText" destination="yfJ-oU-r5l" id="E2V-il-Ae1"/>
                         <outlet property="locText" destination="ggM-AX-KJk" id="ihJ-DK-tni"/>

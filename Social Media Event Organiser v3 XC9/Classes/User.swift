@@ -23,13 +23,16 @@ class User {
         bio = ""
     }
     
-    /*
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
         eventGoing.going.append(self)
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     */
+=======
+    
+>>>>>>> parent of 0991ade... Added Save UIBarButtonItem
     
 =======
     

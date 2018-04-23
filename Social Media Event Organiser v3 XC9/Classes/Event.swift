@@ -18,9 +18,9 @@ class Event {
 <<<<<<< HEAD
     var going = [String]() //Needs changing once user class is ready
     
-    /*
     func addEvent(inputUser: User) {
         going.append(inputUser)
+<<<<<<< HEAD
      }
  */
  
@@ -34,4 +34,7 @@ class Event {
     }
 
 >>>>>>> c6f3051ee00a3e5cedde70146f080f151c4e8d09
+=======
+    }
+>>>>>>> parent of 0991ade... Added Save UIBarButtonItem
 }
