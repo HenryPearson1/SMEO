@@ -22,10 +22,11 @@ class User {
         bio = ""
     }
     
+    /*
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
         eventGoing.addEvent(inputUser: self)
     }
-    
+    */
     
 }
