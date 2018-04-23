@@ -16,6 +16,7 @@ class User {
     var ownEvents = [Event]()
     var goingToEvents = [Event]()
     
+    
     init(inputEmail: String, inputUserName: String, inputBio: String) {
         email = inputEmail
         username = ""
@@ -26,7 +27,13 @@ class User {
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
         eventGoing.addEvent(inputUser: self)
+        eventGoing.going.append(self)
     }
+<<<<<<< HEAD
     */
     
+=======
+    
+  
+>>>>>>> c6f3051ee00a3e5cedde70146f080f151c4e8d09
 }

@@ -10,11 +10,13 @@ import Foundation
 
 
 struct Event {
+class Event {
     
     var name: String
     var description: String
     var location: String 
     var time: String
+<<<<<<< HEAD
     var going = [String]() //Needs changing once user class is ready
     
     /*
@@ -23,4 +25,14 @@ struct Event {
      }
  */
  
+=======
+    var going = [User]()
+    init(inputName: String, inputDescription: String, inputLocation: String, inputTime: String) {
+        name = inputName
+        description = inputDescription
+        location = inputLocation
+        time = inputTime
+    }
+
+>>>>>>> c6f3051ee00a3e5cedde70146f080f151c4e8d09
 }
