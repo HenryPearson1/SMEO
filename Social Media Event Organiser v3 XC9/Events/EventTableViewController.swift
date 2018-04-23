@@ -73,6 +73,7 @@ class EventTableViewController: UITableViewController {
         if segue.identifier == "showDetail"
         {
             let destVC = segue.destination as! ViewEventViewController
+            destVC.eventName = eventSelected
         }
     }
 

@@ -7,16 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewEventViewController: UIViewController {
     
     // get info from event record
     var event: Event!
-    @IBOutlet weak var eventName: UILabel?
+    var eventName: String = ""
+    
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        print(eventName)
 
+        
         // Do any additional setup after loading the view.
     }
 
