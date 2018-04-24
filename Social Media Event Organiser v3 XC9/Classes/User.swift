@@ -17,6 +17,8 @@ class User {
     var bio: String
     var ownEvents = [Event]()
     var goingToEvents = [Event]()
+    var friends = [User]()
+
     
     
     init(inputEmail: String, inputUserName: String, inputBio: String) {
@@ -46,4 +48,7 @@ class User {
         
     }
   
+    func addFriend(friendToAdd: User) {
+        friends.append(friendToAdd)
+    }
 }
