@@ -34,57 +34,54 @@ class RegisterViewController: UIViewController {
     
     @IBAction func RegisterButton(_ sender: Any) {
         
-        if emailField.text == "" {
+        if emailField.text == ""
+        {
             present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Please enter email"), animated: true, completion: nil)
             valid = false
             isInput = false
         }
-        else if passField.text == "" {
+        else if passField.text == ""
+        {
             present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Please enter password"), animated: true, completion: nil)
             valid = false
             isInput = false
         }
-        else{
+        else
+        {
             isInput = true
         }
-        if isInput == true{
-            if validation.isValidEmail(emailStr: emailField.text!) == false{
+        if isInput == true
+        {
+            if validation.isValidEmail(emailStr: emailField.text!) == false
+            {
                 present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid email \n Please try again"), animated: true, completion: nil)
                 valid = false
             }
-            else if validation.isValidPass(passStr: passField.text!) == false{
+            else if validation.isValidPass(passStr: passField.text!) == false
+            {
                 present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum six characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
                 valid = false
             }
-            else{
+            else
+            {
                 valid = true
             }
         }
         
-        if valid == true{
-            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!) { (user, error) in
-                if error != nil{
+        if valid == true
+        {
+            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!)
+            { (user, error) in
+                if error != nil
+                {
                     print(error as Any)
                 }
-                else{
+                else
+                {
                     print("Registration Success")
-                    let ref = Database.database().reference()
-                    let specificEmailRef = ref.child("Users").child(self.usernameField.text!).child("Email")
-                    specificEmailRef.setValue(self.emailField.text!)
-                    let specificUsernameRef = ref.child("Users").child(self.usernameField.text!).child("Username")
-                    specificUsernameRef.setValue(self.usernameField.text!)
-                    let specificBioRef = ref.child("Users").child(self.usernameField.text!).child("Bio")
-                    specificBioRef.setValue("")
-                    let specificOwnEventsRef = ref.child("Users").child(self.usernameField.text!).child("Own Events")
-                    specificOwnEventsRef.setValue("")
-                    let specificGoingToEventsRef = ref.child("Users").child(self.usernameField.text!).child("Events Going To")
-                    specificGoingToEventsRef.setValue("")
-                    let userGoingToEventsRef = ref.child("UserNameList").child("Username").setValue(self.usernameField.text!)
-                    self.emailField.text = ""
-                    self.passField.text = ""
+                    self.FirebasePush()
+                    self.clearTextFields()
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
-                    
-                    
                 }
             }
             // performSegue(withIdentifier: "", sender: nil)
@@ -93,15 +90,26 @@ class RegisterViewController: UIViewController {
         
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    func FirebasePush()
+    {
+        let ref = Database.database().reference()
+        
+        let userID = Auth.auth().currentUser!.uid
+        let userIDRef = ref.child("Users").child(userID)
+        
+        userIDRef.child("Email").setValue(self.emailField.text!)
+        userIDRef.child("Username").setValue(self.usernameField.text!)
+        userIDRef.child("Bio").setValue("")
+        userIDRef.child("Own Events").setValue("")
+        userIDRef.child("Events Going To").setValue("")
+    }
+    
+    func clearTextFields()
+    {
+        self.emailField.text = ""
+        self.passField.text = ""
+    }
     
 }
 

@@ -27,7 +27,7 @@
         <!--Title-->
         <scene sceneID="ft9-tN-C8r">
             <objects>
-                <viewController id="9fa-Ex-sZk" sceneMemberID="viewController">
+                <viewController id="9fa-Ex-sZk" customClass="MyAccountViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Anh-oe-fxl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +501,7 @@
         <!--View All-->
         <scene sceneID="HgB-kb-A2K">
             <objects>
-                <tableViewController title="View All" id="zE5-Rc-rFp" sceneMemberID="viewController">
+                <tableViewController title="View All" id="zE5-Rc-rFp" customClass="AddFriendTableViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kg2-eg-fcD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -534,7 +534,7 @@
         <!--View User-->
         <scene sceneID="r4B-45-Va6">
             <objects>
-                <viewController title="View User" id="i5s-Pd-3sO" sceneMemberID="viewController">
+                <viewController title="View User" id="i5s-Pd-3sO" customClass="FriendDetailViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dx3-La-0Ng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -646,7 +646,7 @@
         <!--View All-->
         <scene sceneID="qbL-EC-abd">
             <objects>
-                <tableViewController title="View All" id="BrY-wt-2Hr" sceneMemberID="viewController">
+                <tableViewController title="View All" id="BrY-wt-2Hr" customClass="FriendListTableViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oXP-cJ-ybU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -673,7 +673,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeP-jb-zGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="422" y="1208"/>
+            <point key="canvasLocation" x="-391" y="929"/>
         </scene>
     </scenes>
     <resources>
