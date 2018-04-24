@@ -60,7 +60,7 @@ class EventTableViewController: UITableViewController {
         let cell = UITableViewCell()
         let event = nameArray[indexPath.row]
         cell.textLabel?.text = event
-        return cell
+        return cell 
     }
 
     override func viewDidAppear(_ animated: Bool)

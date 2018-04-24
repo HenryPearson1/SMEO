@@ -23,17 +23,17 @@ class AddFriendTableViewController: UITableViewController {
         ref = Database.database().reference()
         
         let userIDRef = ref?.child("Users")
-        refHandle = eventRef?.observe(.childAdded, with: {(snapshot) in
+        userIDRef?.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value  = snapshot.value as? NSDictionary
+            let bio = value?["bio"]
+            let eventsGoingTo = value?["eventsGoingTo"]
+            let ownEvents = value?["ownEvents"]
+            let username = value?["username"]
             
-            if let item = snapshot.value as? String
-            {
-                print(item)
-                self.nameArray.append(item)
-                self.tableView.reloadData()
-            }
-        })
+            print(value)
         
 
+        })
     }
 
     override func didReceiveMemoryWarning() {
