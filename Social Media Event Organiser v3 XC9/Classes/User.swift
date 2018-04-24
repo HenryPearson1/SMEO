@@ -47,8 +47,9 @@ class User {
         specificEventRef.setValue(eventDict)
         
     }
-  
+    /*
     func addFriend(friendToAdd: User) {
         friends.append(friendToAdd)
     }
+    */
 }
