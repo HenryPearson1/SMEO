@@ -6,7 +6,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseDatabase
 
 
 class RegisterViewController: UIViewController {
@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
     
     var valid: Bool = false
     var isInput: Bool = false
@@ -67,6 +68,17 @@ class RegisterViewController: UIViewController {
                 }
                 else{
                     print("Registration Success")
+                    let ref = Database.database().reference()
+                    let specificEmailRef = ref.child("Users").child(self.usernameField.text!).child("Email")
+                    specificEmailRef.setValue(self.emailField.text!)
+                    let specificUsernameRef = ref.child("Users").child(self.usernameField.text!).child("Username")
+                    specificUsernameRef.setValue(self.usernameField.text!)
+                    let specificBioRef = ref.child("Users").child(self.usernameField.text!).child("Bio")
+                    specificBioRef.setValue("")
+                    let specificOwnEventsRef = ref.child("Users").child(self.usernameField.text!).child("Own Events")
+                    specificOwnEventsRef.setValue("")
+                    let specificGoingToEventsRef = ref.child("Users").child(self.usernameField.text!).child("Events Going To")
+                    specificGoingToEventsRef.setValue("")
                     self.emailField.text = ""
                     self.passField.text = ""
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)

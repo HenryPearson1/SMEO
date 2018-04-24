@@ -15,22 +15,22 @@ class User {
     var email: String
     var username: String
     var bio: String
-    var ownEvents = [Event]()
-    var goingToEvents = [Event]()
-    var friends = [User]()
-
+    var ownEvents: Array<Event>
+    var goingToEvents: Array<Event>
     
     
-    init(inputEmail: String, inputUserName: String, inputBio: String) {
+    init(inputEmail: String, inputUserName: String, inputBio: String, inputOwnEvents: Array<Event>, inputGoingToEvents: Array<Event>) {
         email = inputEmail
         username = ""
         bio = ""
+        ownEvents = inputOwnEvents
+        goingToEvents = inputGoingToEvents
     }
     
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
         eventGoing.numberOfPeopleGoing += 1
-        var ref = Database.database().reference()
+        let ref = Database.database().reference()
         let specificEventPartRef = ref.child("Events").child(eventGoing.name).child("numberOfPeopleGoing")
         specificEventPartRef.setValue(eventGoing.numberOfPeopleGoing)
     }
@@ -38,7 +38,7 @@ class User {
     // uploads event to firebase
     func createEvent(inputEvent: Event) {
         ownEvents.append(inputEvent)
-        var ref = Database.database().reference()
+        let ref = Database.database().reference()
         let name = inputEvent.name
         let eventDict = ["name": inputEvent.name, "description": inputEvent.description, "location": inputEvent.location, "time": inputEvent.time, "numberOfPeopleGoing": 0] as [String : Any]
         let specificEventRef = ref.child("Events").child(name)
@@ -47,8 +47,9 @@ class User {
         specificEventRef.setValue(eventDict)
         
     }
-  
+    /*
     func addFriend(friendToAdd: User) {
         friends.append(friendToAdd)
     }
+    */
 }
