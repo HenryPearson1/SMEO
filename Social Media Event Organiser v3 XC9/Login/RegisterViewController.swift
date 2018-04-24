@@ -105,7 +105,7 @@ class RegisterViewController: UIViewController {
         userIDRef.child("ownEvents").setValue("")
         userIDRef.child("eventsGoingTo").setValue("")
         userIDRef.child("userID").setValue(userID)
-        userIDListRef.child(userID).setValue(userID)
+        userIDListRef.child(userID).setValue(self.usernameField.text)
         
     }
     
