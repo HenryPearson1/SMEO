@@ -18,6 +18,10 @@
 		0451B9D42089CB1600AF63F5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B9D32089CB1600AF63F5 /* RegisterViewController.swift */; };
 		0451B9D62089CB3A00AF63F5 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451B9D52089CB3A00AF63F5 /* EventTableViewController.swift */; };
 		0451B9DB2089E26E00AF63F5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0451B9DA2089E26E00AF63F5 /* Login.storyboard */; };
+		04983F06208FAC6500978236 /* FriendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F05208FAC6500978236 /* FriendListTableViewController.swift */; };
+		04983F08208FAC7500978236 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F07208FAC7500978236 /* AddFriendTableViewController.swift */; };
+		04983F0A208FAC9700978236 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F09208FAC9700978236 /* MyAccountViewController.swift */; };
+		04983F0C208FACAE00978236 /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F0B208FACAE00978236 /* FriendDetailViewController.swift */; };
 		04EB60A32089F04A000EB6C4 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB60A22089F04A000EB6C4 /* AddEventViewController.swift */; };
 		04EB60A52089F05B000EB6C4 /* ViewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB60A42089F05B000EB6C4 /* ViewEventViewController.swift */; };
 		17DBF41295962E04926C1EBB /* Pods_Social_Media_Event_Organiser_v3_XC9UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D172E5B4C5964C204DB19DB /* Pods_Social_Media_Event_Organiser_v3_XC9UITests.framework */; };
@@ -64,6 +68,10 @@
 		0451B9D32089CB1600AF63F5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0451B9D52089CB3A00AF63F5 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		0451B9DA2089E26E00AF63F5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		04983F05208FAC6500978236 /* FriendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewController.swift; sourceTree = "<group>"; };
+		04983F07208FAC7500978236 /* AddFriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewController.swift; sourceTree = "<group>"; };
+		04983F09208FAC9700978236 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		04983F0B208FACAE00978236 /* FriendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		04EB60A22089F04A000EB6C4 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		04EB60A42089F05B000EB6C4 /* ViewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEventViewController.swift; sourceTree = "<group>"; };
 		32CC878A928E403C1C942C55 /* Pods_Social_Media_Event_Organiser_v3_XC9.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Media_Event_Organiser_v3_XC9.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				04EB60A12089F02B000EB6C4 /* Classes */,
+				04983F04208FAC3700978236 /* Friends */,
 				04EB60A02089F016000EB6C4 /* Events */,
 				0451B9CD2089CACF00AF63F5 /* Login */,
 				0451B9CE2089CAD500AF63F5 /* UI */,
@@ -167,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				0451B9D12089CB0E00AF63F5 /* LoginViewController.swift */,
+				04983F09208FAC9700978236 /* MyAccountViewController.swift */,
 				0451B9D32089CB1600AF63F5 /* RegisterViewController.swift */,
 			);
 			path = Login;
@@ -180,6 +190,16 @@
 				0451B9A42089C8F500AF63F5 /* LaunchScreen.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		04983F04208FAC3700978236 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				04983F05208FAC6500978236 /* FriendListTableViewController.swift */,
+				04983F07208FAC7500978236 /* AddFriendTableViewController.swift */,
+				04983F0B208FACAE00978236 /* FriendDetailViewController.swift */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		04EB60A02089F016000EB6C4 /* Events */ = {
@@ -451,11 +471,15 @@
 				0451B9D42089CB1600AF63F5 /* RegisterViewController.swift in Sources */,
 				0451B9D22089CB0E00AF63F5 /* LoginViewController.swift in Sources */,
 				0451B9D62089CB3A00AF63F5 /* EventTableViewController.swift in Sources */,
+				04983F0A208FAC9700978236 /* MyAccountViewController.swift in Sources */,
+				04983F06208FAC6500978236 /* FriendListTableViewController.swift in Sources */,
 				85BC58BB2089E8E400B789B0 /* Alert.swift in Sources */,
+				04983F0C208FACAE00978236 /* FriendDetailViewController.swift in Sources */,
 				482ADD72208B300500BC54DE /* Event.swift in Sources */,
 				04EB60A52089F05B000EB6C4 /* ViewEventViewController.swift in Sources */,
 				482ADD6E208B2CDC00BC54DE /* User.swift in Sources */,
 				04EB60A32089F04A000EB6C4 /* AddEventViewController.swift in Sources */,
+				04983F08208FAC7500978236 /* AddFriendTableViewController.swift in Sources */,
 				85BC58BC2089E8E400B789B0 /* Validation.swift in Sources */,
 				0451B99C2089C8F500AF63F5 /* AppDelegate.swift in Sources */,
 			);
