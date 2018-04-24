@@ -18,10 +18,12 @@ class User {
     var goingToEvents = [Event]()
     var friends = [User]()
     
-    init(inputEmail: String, inputUserName: String, inputBio: String) {
+    init(inputEmail: String, inputUserName: String, inputBio: String, inputOwnEvents: Array<Event>, inputGoingToEvents: Array<Event>) {
         email = inputEmail
         username = ""
         bio = ""
+        ownEvents = inputOwnEvents
+        goingToEvents = inputGoingToEvents
     }
     
 //    func goToEvent(eventGoing: Event) {
