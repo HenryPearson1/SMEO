@@ -79,6 +79,7 @@ class RegisterViewController: UIViewController {
                     specificOwnEventsRef.setValue("")
                     let specificGoingToEventsRef = ref.child("Users").child(self.usernameField.text!).child("Events Going To")
                     specificGoingToEventsRef.setValue("")
+                    let userGoingToEventsRef = ref.child("UserNameList").child("Username").setValue(self.usernameField.text!)
                     self.emailField.text = ""
                     self.passField.text = ""
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
