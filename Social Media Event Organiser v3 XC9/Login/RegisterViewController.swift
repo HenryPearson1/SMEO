@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var userNameField: UITextField!
     
     var valid: Bool = false
     var isInput: Bool = false
@@ -43,6 +44,11 @@ class RegisterViewController: UIViewController {
             valid = false
             isInput = false
         }
+        else if userNameField.text == ""{
+            present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Please enter username"), animated: true, completion: nil)
+            valid = false
+            isInput = false
+        }
         else{
             isInput = true
         }
@@ -55,13 +61,23 @@ class RegisterViewController: UIViewController {
                 present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum six characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
                 valid = false
             }
+            else if userNameField.text!.count > 20{
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is more than 20 characters"), animated: true, completion: nil)
+                valid = false
+            }
+            else if userNameField.text!.count > 4{
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is less than 4 characters"), animated: true, completion: nil)
+                valid = false
+            }
             else{
                 valid = true
             }
         }
         
         if valid == true{
-            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!) { (user, error) in
+            //upload username to firebase below
+            //Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!, username: userNameField.text!)
+            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!){ (user, error) in
                 if error != nil{
                     print(error as Any)
                 }
@@ -69,6 +85,7 @@ class RegisterViewController: UIViewController {
                     print("Registration Success")
                     self.emailField.text = ""
                     self.passField.text = ""
+                    self.userNameField.text = ""
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
                     
                     

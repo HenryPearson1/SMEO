@@ -17,7 +17,7 @@ struct Event {
     var time: String
     var going = [String]() //Needs changing once user class is ready
     
-    func addEvent(inputUser: User) {
-        going.append(inputUser)
-    }
+//    mutating func addEvent(inputUser: User) {
+//        going.append(inputUser)
+//    }
 }

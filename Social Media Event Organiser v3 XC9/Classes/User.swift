@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class User {
     // info about events
@@ -15,6 +16,7 @@ class User {
     var bio: String
     var ownEvents = [Event]()
     var goingToEvents = [Event]()
+    var friends = [User]()
     
     init(inputEmail: String, inputUserName: String, inputBio: String) {
         email = inputEmail
@@ -22,10 +24,13 @@ class User {
         bio = ""
     }
     
-    func goToEvent(eventGoing: Event) {
-        goingToEvents.append(eventGoing)
-        eventGoing.addEvent(inputUser: self)
-    }
+//    func goToEvent(eventGoing: Event) {
+//        goingToEvents.append(eventGoing)
+//        eventGoing.addEvent(inputUser: self)
+//    }
     
+    func addFriend(friendToAdd: User) {
+        friends.append(friendToAdd)
+    }
     
 }
