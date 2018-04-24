@@ -38,11 +38,14 @@ class ViewEventViewController: UIViewController {
             let eventDict = ["name": name, "description": description, "location": location, "time": time, "going": going]
             
             let eventRef = ref?.child("Events").child(eventName)
+            let newEventRef = ref?.child("Events").child(name)
             let eventNameRef = ref?.child("eventNameList")
             
             eventNameRef?.child(eventName).removeValue()
-            eventNameRef?.setValue(name)
-            eventRef?.setValue(eventDict)
+            eventRef?.child(eventName).removeValue()
+            
+            eventNameRef?.child(name).setValue(name)
+            newEventRef?.setValue(eventDict)
             
             
             

@@ -15,8 +15,11 @@ class User {
     var email: String
     var username: String
     var bio: String
+<<<<<<< HEAD
     var ownEvents: Array<Event>
     var goingToEvents: Array<Event>
+=======
+>>>>>>> 7b781e12f94b1c0110660f10a80dd4b798408c97
     
     
     init(inputEmail: String, inputUserName: String, inputBio: String, inputOwnEvents: Array<Event>, inputGoingToEvents: Array<Event>) {
@@ -47,5 +50,9 @@ class User {
         specificEventRef.setValue(eventDict)
         
     }
+<<<<<<< HEAD
     
+||||||| merged common ancestors
+=======
+>>>>>>> 7b781e12f94b1c0110660f10a80dd4b798408c97
 }
