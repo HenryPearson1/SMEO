@@ -61,8 +61,8 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     print("Login Success")
+                    self.performSegue(withIdentifier: "toAccountTabBarController", sender: nil)
                     
-                    self.performSegue(withIdentifier: "toMainStoryboard", sender: nil)
                     self.valid = false
                 }
                 
