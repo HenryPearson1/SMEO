@@ -97,12 +97,16 @@ class RegisterViewController: UIViewController {
         
         let userID = Auth.auth().currentUser!.uid
         let userIDRef = ref.child("Users").child(userID)
+        let userIDListRef = ref.child("UserList")
         
         userIDRef.child("email").setValue(self.emailField.text!)
         userIDRef.child("username").setValue(self.usernameField.text!)
         userIDRef.child("bio").setValue("")
         userIDRef.child("ownEvents").setValue("")
         userIDRef.child("eventsGoingTo").setValue("")
+        userIDRef.child("userID").setValue(userID)
+        userIDListRef.child(userID).setValue(userID)
+        
     }
     
     func clearTextFields()

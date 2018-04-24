@@ -11,29 +11,31 @@ import Firebase
 
 class AddFriendTableViewController: UITableViewController {
 
-    var nameArray = [String]()
+    var userIDArray = [String]()
     var userSelected: String = ""
     
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         
-        let userIDRef = ref?.child("Users")
-        userIDRef?.observeSingleEvent(of: .value, with: {(snapshot) in
-            let value  = snapshot.value as? NSDictionary
-            let bio = value?["bio"]
-            let eventsGoingTo = value?["eventsGoingTo"]
-            let ownEvents = value?["ownEvents"]
-            let username = value?["username"]
+        let userIDListRef = ref?.child("UserList")
+        refHandle = userIDListRef?.observe(.childAdded, with: {(snapshot) in
             
-            print(value)
-        
+            if let item = snapshot.value as? String
+            {
+                print("item", item)
+                self.userIDArray.append(item)
+                self.tableView.reloadData()
+                print("array", self.userIDArray)
 
+            }
         })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +55,8 @@ class AddFriendTableViewController: UITableViewController {
         return 0
     }
 
+    
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
