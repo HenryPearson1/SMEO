@@ -65,7 +65,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="7Jn-58-WiL" kind="relationship" relationship="viewControllers" id="aaB-TZ-tUf"/>
                         <segue destination="cOl-Ld-cRn" kind="relationship" relationship="viewControllers" id="nt8-nN-shh"/>
                     </connections>
                 </tabBarController>
@@ -300,40 +299,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1z-Dr-4Xn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2396" y="-67.016491754122939"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="dH9-0g-SRB">
-            <objects>
-                <viewController id="7Jn-58-WiL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FAC-06-RVQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fZ-vE-eLJ">
-                                <rect key="frame" x="135" y="216" width="149" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back to Friends/Login"/>
-                                <connections>
-                                    <segue destination="eY8-5Z-o6Y" kind="show" id="emi-Vp-ACi"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="lYZ-7E-RXI"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="0De-M6-0Bm"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4yA-Wd-E1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-994.39999999999998" y="724.58770614692662"/>
-        </scene>
-        <!--loginTabBarController-->
-        <scene sceneID="ys3-1f-N6K">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="loginTabBarController" id="eY8-5Z-o6Y" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="woD-NK-JDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-348" y="788"/>
         </scene>
     </scenes>
     <resources>
