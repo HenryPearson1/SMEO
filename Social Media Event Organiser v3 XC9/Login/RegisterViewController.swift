@@ -58,14 +58,14 @@ class RegisterViewController: UIViewController {
                 valid = false
             }
             else if validation.isValidPass(passStr: passField.text!) == false{
-                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum six characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum eight characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
                 valid = false
             }
-            else if userNameField.text!.count > 20{
+            else if userNameField.text!.count >= 20{
                 present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is more than 20 characters"), animated: true, completion: nil)
                 valid = false
             }
-            else if userNameField.text!.count > 4{
+            else if userNameField.text!.count <= 4{
                 present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is less than 4 characters"), animated: true, completion: nil)
                 valid = false
             }
@@ -84,16 +84,18 @@ class RegisterViewController: UIViewController {
                 else{
                     print("Registration Success")
                     let ref = Database.database().reference()
-                    let specificEmailRef = ref.child("Users").child(self.usernameField.text!).child("Email")
+                    let specificEmailRef = ref.child("Users").child(self.userNameField.text!).child("Email")
                     specificEmailRef.setValue(self.emailField.text!)
-                    let specificUsernameRef = ref.child("Users").child(self.usernameField.text!).child("Username")
-                    specificUsernameRef.setValue(self.usernameField.text!)
-                    let specificBioRef = ref.child("Users").child(self.usernameField.text!).child("Bio")
+                    let specificUsernameRef = ref.child("Users").child(self.userNameField.text!).child("Username")
+                    specificUsernameRef.setValue(self.userNameField.text!)
+                    let specificBioRef = ref.child("Users").child(self.userNameField.text!).child("Bio")
                     specificBioRef.setValue("")
-                    let specificOwnEventsRef = ref.child("Users").child(self.usernameField.text!).child("Own Events")
+                    let specificOwnEventsRef = ref.child("Users").child(self.userNameField.text!).child("Own Events")
                     specificOwnEventsRef.setValue("")
-                    let specificGoingToEventsRef = ref.child("Users").child(self.usernameField.text!).child("Events Going To")
+                    let specificGoingToEventsRef = ref.child("Users").child(self.userNameField.text!).child("Events Going To")
                     specificGoingToEventsRef.setValue("")
+                    let specificFriendsArray = ref.child("Users").child(self.userNameField.text!).child("Friends")
+                    specificFriendsArray.setValue([User]())
                     self.emailField.text = ""
                     self.passField.text = ""
                     self.userNameField.text = ""

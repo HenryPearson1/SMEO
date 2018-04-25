@@ -35,5 +35,4 @@ class User {
         friends.append(friendToAdd)
     }
     
->>>>>>> parent of c6f3051... fixed issues
 }
