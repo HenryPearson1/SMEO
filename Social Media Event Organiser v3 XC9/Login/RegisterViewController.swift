@@ -59,7 +59,7 @@ class RegisterViewController: UIViewController {
             }
             else if validation.isValidPass(passStr: passField.text!) == false
             {
-                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum six characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum eight characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
                 valid = false
             }
             else
