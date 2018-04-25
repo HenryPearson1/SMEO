@@ -17,6 +17,7 @@ class User {
     var bio: String
     var ownEvents: Array<Event>
     var goingToEvents: Array<Event>
+    var friends = [User]()
     
     
     init(inputEmail: String, inputUserName: String, inputBio: String, inputOwnEvents: Array<Event>, inputGoingToEvents: Array<Event>) {
