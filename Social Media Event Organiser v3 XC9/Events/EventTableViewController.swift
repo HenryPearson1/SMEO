@@ -65,6 +65,8 @@ class EventTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool)
     {
+       
+        tableView.reloadData()
         ref?.child("currentSession").child("eventCount").setValue(nameArray.count)
         print(nameArray)
     }
