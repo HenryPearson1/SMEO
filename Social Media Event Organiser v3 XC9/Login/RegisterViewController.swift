@@ -82,9 +82,10 @@ class RegisterViewController: UIViewController {
                     self.FirebasePush()
                     self.clearTextFields()
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "registerSegue", sender: nil)
                 }
             }
-            // performSegue(withIdentifier: "", sender: nil)
+
             valid = false
         }
         
