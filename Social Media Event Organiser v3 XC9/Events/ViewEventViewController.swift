@@ -15,7 +15,7 @@ class ViewEventViewController: UIViewController {
     var eventName: String = ""
     var editIndex = 0
     
-    var ref: DatabaseReference?
+    var ref: DatabaseReference? 
 
     
     @IBOutlet weak var nameTextField: UITextField!

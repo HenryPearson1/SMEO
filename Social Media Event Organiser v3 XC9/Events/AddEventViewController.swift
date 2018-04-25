@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class AddEventViewController: UIViewController {
 
-    var ref: DatabaseReference!
+    var ref: DatabaseReference! 
     
     @IBOutlet weak var nametext: UITextField!
     @IBOutlet weak var descText: UITextField!
