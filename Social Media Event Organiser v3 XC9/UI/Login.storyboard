@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -382,6 +382,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="RegisterButton:" destination="mQ9-c9-Mmf" eventType="touchUpInside" id="Oaa-Mo-g3x"/>
+                                    <segue destination="adr-V7-ZtQ" kind="show" identifier="registerSegue" id="VKh-aP-yEV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-bH-NYx">
@@ -989,4 +990,7 @@
     <resources>
         <image name="wallpaper" width="1242" height="2208"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VKh-aP-yEV"/>
+    </inferredMetricsTieBreakers>
 </document>
