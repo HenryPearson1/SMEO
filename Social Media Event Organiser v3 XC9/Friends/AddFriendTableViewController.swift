@@ -23,7 +23,6 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
     
     
     override func viewDidLoad() {
-        print("A")
         ref = Database.database().reference()
         
         let userIDListRef = ref?.child("UserList")
@@ -41,7 +40,7 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
             
         })
         
-        print("B")
+        
         filteredUserNames = userIDArray
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -50,7 +49,7 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
         
         
         super.viewDidLoad()
-        print("C")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,8 +118,7 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
         filteredUserNames = userIDArray.sorted()
         super.viewWillAppear(true)
         self.tableView.reloadData()
-        
-        print("E")
+
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
