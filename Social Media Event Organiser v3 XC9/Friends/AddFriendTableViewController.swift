@@ -21,8 +21,26 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
     var ref: DatabaseReference?
     var refHandle: DatabaseHandle?
     
+    lazy var refreshcontrol: UIRefreshControl = {
+        let refreshcontrol = UIRefreshControl()
+        refreshcontrol.addTarget(self, action:
+            #selector(AddFriendTableViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshcontrol.tintColor = UIColor.red
+        
+        return refreshcontrol
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        filteredUserNames = userIDArray.sorted()
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
     
     override func viewDidLoad() {
+        self.tableView.addSubview(self.refreshcontrol)
+        
         ref = Database.database().reference()
         
         let userIDListRef = ref?.child("UserList")
@@ -46,7 +64,6 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
-        
         
         super.viewDidLoad()
         
