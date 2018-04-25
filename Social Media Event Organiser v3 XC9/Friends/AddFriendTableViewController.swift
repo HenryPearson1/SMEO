@@ -111,10 +111,8 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
         tag = filteredUserNames![indexPath.row]
         
         print(tag)
-        //performSegue(withIdentifier: "ViewSegue", sender: nil)
-        /////////
-        //first gets patient name from filtered by the row the user selected
-        //then tag is the name from the global names with the index of the name that was selected
+        self.performSegue(withIdentifier: "ViewSegue", sender: nil)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
