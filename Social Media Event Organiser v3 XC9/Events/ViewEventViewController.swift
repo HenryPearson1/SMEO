@@ -18,6 +18,7 @@ class ViewEventViewController: UIViewController {
     var ref: DatabaseReference? 
 
     
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
