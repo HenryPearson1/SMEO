@@ -28,6 +28,7 @@ class User {
         goingToEvents = inputGoingToEvents
     }
     
+//    Why are these in here?
     func goToEvent(eventGoing: Event) {
         goingToEvents.append(eventGoing)
         eventGoing.numberOfPeopleGoing += 1
@@ -48,9 +49,8 @@ class User {
         specificEventRef.setValue(eventDict)
         
     }
-    /*
+
     func addFriend(friendToAdd: User) {
         friends.append(friendToAdd)
     }
-    */
 }
