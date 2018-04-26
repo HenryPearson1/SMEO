@@ -13,14 +13,24 @@ class FriendDetailViewController: UIViewController {
     
     var ref: DatabaseReference!
     
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var dateJoinedLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
+    
+    var bio: String = ""
+    var email: String = ""
+    var eventsGoingTo: String = ""
+    var ownEvents: String = ""
     
     
     var username: String = ""
     var uid: String = ""
     
     override func viewDidLoad() {
-        print(username)
         super.viewDidLoad()
+        
+        navigationItem.title = username
+        
         ref = Database.database().reference()
         
         let userListRef = ref?.child("UserList")
@@ -30,7 +40,22 @@ class FriendDetailViewController: UIViewController {
             self.uid = keyArray[0]
             print("uid", self.uid)
         })
-        getData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (0.5)) {
+            print("uid,",self.uid)
+            let userRef = self.ref?.child("Users").child(self.uid)
+            userRef?.observeSingleEvent(of: .value, with: {(snapshot) in
+                let value  = snapshot.value as? [String:String]
+                self.bio = (value?["bio"])!
+                self.email = (value?["email"])!
+                self.eventsGoingTo = (value?["eventsGoingTo"])!
+                self.ownEvents = (value?["ownEvents"])!
+                print(self.bio)
+                
+            })
+        }
+        
+        populateLabels()
         print()
     }
     
@@ -40,18 +65,11 @@ class FriendDetailViewController: UIViewController {
     }
     
     
-    func getData()
+    func populateLabels()
     {
-        let userRef = ref?.child("Users").child(uid)
-        userRef?.observeSingleEvent(of: .value, with: {(snapshot) in
-            let value  = snapshot.value as? NSDictionary
-            let bio = value?["bio"]
-            let email = value?["email"]
-            let eventsGoingTo = value?["eventsGoingTo"]
-            let ownEvents = value?["ownEvents"]
-            print(bio)
-            
-        })
+        usernameLabel.text = username
+        dateJoinedLabel.text = "date"
+        bioLabel.text = bio
     }
 }
 

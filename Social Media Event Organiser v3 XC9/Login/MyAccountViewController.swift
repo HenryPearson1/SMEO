@@ -10,6 +10,12 @@ import UIKit
 
 class MyAccountViewController: UIViewController {
 
+    @IBOutlet weak var dateJoinedLabel: UILabel!
+    @IBOutlet weak var namLabel: UILabel!
+    @IBOutlet weak var bioTextView: UITextView!
+    
+    @IBOutlet weak var ageTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
