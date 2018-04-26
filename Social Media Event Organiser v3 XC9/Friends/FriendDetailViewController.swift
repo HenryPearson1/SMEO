@@ -12,6 +12,7 @@ import Firebase
 class FriendDetailViewController: UIViewController {
     
     var ref: DatabaseReference!
+    let alert = Alert()
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateJoinedLabel: UILabel!
@@ -64,6 +65,14 @@ class FriendDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addFriendButton(_ sender: Any) {
+        //grab user's "array" of current friends
+        //see if this friend is already in the array
+        //if so, popup alert
+        //present(alert.defaultAlert(alertTitle: "Info", alertMessage: "This user is already a friend"), animated: true, completion: nil)
+        //if not, add friend
+        //resent(alert.defaultAlert(alertTitle: "Info", alertMessage: "Friend added"), animated: true, completion: nil)
+    }
     
     func populateLabels()
     {
