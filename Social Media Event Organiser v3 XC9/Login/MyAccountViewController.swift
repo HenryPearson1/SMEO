@@ -25,6 +25,7 @@ class MyAccountViewController: UIViewController {
     var dateJoined = ""
     var currentUser = Auth.auth().currentUser?.uid
     var username = ""
+    var valueDict: [String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +33,18 @@ class MyAccountViewController: UIViewController {
         
         let userRef = ref.child("Users").child((currentUser)!)
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? [String:String]
-            self.bio = (value?["bio"])!
-            self.dateJoined = (value?["dateJoined"])!
-            self.username = (value?["username"])!
+            self.valueDict = (snapshot.value as? [String:String])!
+            self.bio = (self.valueDict["bio"])!
+            self.dateJoined = (self.valueDict["dateJoined"])!
+            self.username = (self.valueDict["username"])!
+            print(self.valueDict)
+            print(self.dateJoined)
             
         })
 
+        print(valueDict[dateJoined])
         populateTextFields()
+        print("done")
         
         // Do any additional setup after loading the view.
     }
