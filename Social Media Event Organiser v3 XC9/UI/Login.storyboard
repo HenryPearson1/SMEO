@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="214" y="-611"/>
         </scene>
-        <!--Title-->
+        <!--My Account-->
         <scene sceneID="ft9-tN-C8r">
             <objects>
                 <viewController id="9fa-Ex-sZk" customClass="MyAccountViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,8 +37,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="shG-IJ-LP4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-q9-pLo">
-                                <rect key="frame" x="16" y="83" width="343" height="220"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-q9-pLo">
+                                <rect key="frame" x="16" y="125" width="343" height="178"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -127,6 +127,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-oW-iYI">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="My Account" id="Xpf-II-han">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xQi-5Z-l1d"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -165,11 +174,12 @@
                         <viewLayoutGuide key="safeArea" id="yzi-2J-fzs"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Account" id="2x0-pc-sCa"/>
-                    <navigationItem key="navigationItem" title="Title" id="UA7-kq-FT9"/>
                     <connections>
                         <outlet property="ageTextField" destination="sBz-Of-Obh" id="mhv-Zl-lEZ"/>
                         <outlet property="bioTextView" destination="Nup-iF-ZjX" id="LXC-qH-VKK"/>
                         <outlet property="dateJoinedLabel" destination="lhD-NP-JDC" id="BkF-AK-RoE"/>
+                        <outlet property="doneBarButtonAction" destination="xQi-5Z-l1d" id="QV8-iY-59W"/>
+                        <outlet property="doneBarButtonOutlet" destination="xQi-5Z-l1d" id="O3Z-5T-wvf"/>
                         <outlet property="namLabel" destination="B4G-32-4VY" id="4PT-eF-j1x"/>
                     </connections>
                 </viewController>

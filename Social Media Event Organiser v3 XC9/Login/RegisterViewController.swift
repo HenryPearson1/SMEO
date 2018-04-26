@@ -20,9 +20,19 @@ class RegisterViewController: UIViewController {
     
     var valid: Bool = false
     var isInput: Bool = false
+    let date = Date()
+    let calendar = Calendar.current
+    var dateString: String = ""
+   
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let day = String(calendar.component(.day, from: date))
+        let month = String(calendar.component(.month, from: date))
+        let year = String(calendar.component(.year, from: date))
+        dateString = "\(day)/\(month)/\(year)"
         
         // Do any additional setup after loading the view.
     }
@@ -105,6 +115,7 @@ class RegisterViewController: UIViewController {
         userIDRef.child("bio").setValue("")
         userIDRef.child("ownEvents").setValue("")
         userIDRef.child("eventsGoingTo").setValue("")
+        userIDRef.child("dateJoined").setValue(dateString)
         userIDRef.child("userID").setValue(userID)
         userIDListRef.child(userID).setValue(self.usernameField.text)
         
