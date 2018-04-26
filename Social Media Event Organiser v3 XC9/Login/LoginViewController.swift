@@ -17,6 +17,9 @@ class LoginViewController: UIViewController {
     var valid: Bool = false
     var isInput: Bool = false
     
+    var username: String!
+    var bio: String!
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -61,6 +64,30 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     print("Login Success")
+                    var ref: DatabaseReference!
+                    ref = Database.database().reference()
+                    var refHandle: DatabaseHandle!
+                    let specificUserRef1 = ref?.child("Users").child((user?.uid)!).child("username")
+                    refHandle = specificUserRef1?.observe(.childAdded, with: {(snapshot) in
+                        
+                        if let item = snapshot.value as? String
+                        {
+                            print(item)
+                            self.username = item
+                        }
+                    })
+                    let specificUserRef2 = ref?.child("Users").child((user?.uid)!).child("bio")
+                    refHandle = specificUserRef2?.observe(.childAdded, with: {(snapshot) in
+                        
+                        if let item = snapshot.value as? String
+                        {
+                            print(item)
+                            self.bio = item
+                        }
+                    })
+                    print(user?.uid)
+                    theUser = User(inputEmail: self.emailTextField.text!, inputUserName: self.username, inputBio: self.bio, inputOwnEvents: [], inputGoingToEvents: [], inputID: (user?.uid)!)
+                    print(theUser.email, theUser.bio, theUser.username)
                     self.performSegue(withIdentifier: "toAccountTabBarController", sender: nil)
                     
                     self.valid = false

@@ -96,7 +96,6 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Prototype", for: indexPath)
-        
         if let usernamesArray = filteredUserNames?.sorted() {
             let cellName = ("\(String(describing: usernamesArray[indexPath.row]))")
             cell.textLabel?.text = cellName

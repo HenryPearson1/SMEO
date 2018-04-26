@@ -8,4 +8,4 @@
 
 import Foundation
 
-var user: User!
+var theUser: User!

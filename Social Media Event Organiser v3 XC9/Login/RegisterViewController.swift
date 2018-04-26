@@ -89,6 +89,8 @@ class RegisterViewController: UIViewController {
                 else
                 {
                     print("Registration Success")
+                    theUser = User(inputEmail: self.emailField.text!, inputUserName: self.usernameField.text!, inputBio: "", inputOwnEvents: [], inputGoingToEvents: [], inputID: (user?.uid)!)
+                    theUser.addUser()
                     self.FirebasePush()
                     self.clearTextFields()
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
