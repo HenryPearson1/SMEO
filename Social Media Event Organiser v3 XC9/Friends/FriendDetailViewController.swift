@@ -7,16 +7,31 @@
 //
 
 import UIKit
+import Firebase
 
 class FriendDetailViewController: UIViewController {
     
-    var datacomingin: String = ""
+    var ref: DatabaseReference!
+    
+    
+    
+    var username: String = ""
+    var uid: String = ""
     
     override func viewDidLoad() {
-        print(datacomingin)
+        print(username)
         super.viewDidLoad()
+        ref = Database.database().reference()
         
-        // Do any additional setup after loading the view.
+        let userListRef = ref?.child("UserList")
+        userListRef?.observeSingleEvent(of: .value, with: {(snapshot) in
+            let valueDict  = snapshot.value! as! [String : String]
+            let keyArray = (valueDict as NSDictionary).allKeys(for: String(self.username)) as! [String]
+            self.uid = keyArray[0]
+            print("uid", self.uid)
+        })
+        getData()
+        print()
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,15 +40,18 @@ class FriendDetailViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func getData()
+    {
+        let userRef = ref?.child("Users").child(uid)
+        userRef?.observeSingleEvent(of: .value, with: {(snapshot) in
+            let value  = snapshot.value as? NSDictionary
+            let bio = value?["bio"]
+            let email = value?["email"]
+            let eventsGoingTo = value?["eventsGoingTo"]
+            let ownEvents = value?["ownEvents"]
+            print(bio)
+            
+        })
+    }
 }
 

@@ -11,7 +11,7 @@ import Firebase
 
 class AddFriendTableViewController: UITableViewController, UISearchResultsUpdating {
     
-    var tag = ""
+    var username = ""
     var filteredUserNames: [String]?
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -107,9 +107,9 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tag = filteredUserNames![indexPath.row]
+        username = filteredUserNames![indexPath.row]
         
-        print(tag)
+        print(username)
         self.performSegue(withIdentifier: "ViewSegue", sender: nil)
     
     }
@@ -125,8 +125,8 @@ class AddFriendTableViewController: UITableViewController, UISearchResultsUpdati
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let toSend = segue.destination as! FriendDetailViewController
-        toSend.datacomingin = tag
+        let DestVC = segue.destination as! FriendDetailViewController
+        DestVC.username = username
     }
     
     /*
