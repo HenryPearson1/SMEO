@@ -729,7 +729,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wtu-f1-EWJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Prototype2" id="wtu-f1-EWJ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wtu-f1-EWJ" id="Vki-6O-Tto">
@@ -748,7 +748,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="u6m-jZ-Kfz"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="aKV-bI-jcp" kind="show" id="BJQ-HA-3LF"/>
+                        <segue destination="aKV-bI-jcp" kind="show" identifier="ViewFriend" id="BJQ-HA-3LF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeP-jb-zGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -797,7 +797,7 @@
         <!--View User-->
         <scene sceneID="gXn-ck-LCy">
             <objects>
-                <viewController title="View User" id="aKV-bI-jcp" customClass="FriendDetailViewController" customModule="Social_Media_Event_Organiser_v3_XC9" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="View User" id="aKV-bI-jcp" customClass="FriendDetailViewController2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYJ-of-ax9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -884,11 +884,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rS-OJ-geZ">
-                                <rect key="frame" x="16" y="603" width="165" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w46-6S-cpX">
+                                <rect key="frame" x="17" y="603" width="342" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add">
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Remove">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -897,21 +897,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addFriendButton:" destination="aKV-bI-jcp" eventType="touchUpInside" id="hJM-xr-oSx"/>
+                                    <action selector="removeFriendButton:" destination="aKV-bI-jcp" eventType="touchUpInside" id="aSt-sm-m0x"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w46-6S-cpX">
-                                <rect key="frame" x="194" y="603" width="165" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Block">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9D-4F-5ht">
                                 <rect key="frame" x="17" y="445" width="150" height="38"/>
@@ -925,14 +912,14 @@
                         <viewLayoutGuide key="safeArea" id="TMi-CK-Jit"/>
                     </view>
                     <connections>
-                        <outlet property="bioLabel" destination="CWT-hV-hBP" id="5rY-8v-mEE"/>
-                        <outlet property="dateJoinedLabel" destination="jko-L0-yh5" id="etw-Dn-GLg"/>
-                        <outlet property="usernameLabel" destination="Sqc-9u-XvJ" id="LGw-0K-QA4"/>
+                        <outlet property="bioLabel" destination="CWT-hV-hBP" id="dXy-ku-tnr"/>
+                        <outlet property="dateJoinedLabel" destination="jko-L0-yh5" id="kwh-ba-Ctu"/>
+                        <outlet property="usernameLabel" destination="Sqc-9u-XvJ" id="Lo2-tc-Dpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBb-UV-o1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="1275"/>
+            <point key="canvasLocation" x="328.80000000000001" y="1274.2128935532235"/>
         </scene>
     </scenes>
     <resources>
