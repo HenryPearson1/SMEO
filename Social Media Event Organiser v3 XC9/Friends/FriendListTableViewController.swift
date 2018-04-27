@@ -1,5 +1,5 @@
 //
-//  FriendListTableViewController.swift
+//  AddFriendTableViewController.swift
 //  Social Media Event Organiser v3 XC9
 //
 //  Created by Seena Shafai on 24/04/2018.
@@ -7,44 +7,123 @@
 //
 
 import UIKit
+import Firebase
 
-class FriendListTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+class FriendListTableViewController: UITableViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
-
+    
+    
+    var username = ""
+    var filteredUserNames: [String]?
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var userIDArray = [String]()
+    var userSelected: String = ""
+    
+    var ref: DatabaseReference?
+    var refHandle: DatabaseHandle?
+    
+    lazy var refreshcontrol: UIRefreshControl = {
+        let refreshcontrol = UIRefreshControl()
+        refreshcontrol.addTarget(self, action:
+            #selector(AddFriendTableViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshcontrol.tintColor = UIColor.red
+        
+        return refreshcontrol
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        filteredUserNames = userIDArray.sorted()
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    override func viewDidLoad() {
+        self.tableView.addSubview(self.refreshcontrol)
+        
+        ref = Database.database().reference()
+        
+        let userIDListRef = ref?.child("UserList") //change this to friend's array
+        refHandle = userIDListRef?.observe(.childAdded, with: {(snapshot) in
+            
+            
+            if let item = snapshot.value as? String
+            {
+                print("item", item)
+                self.userIDArray.append(item)
+                self.tableView.reloadData()
+                print("array", self.userIDArray)
+                
+            }
+            
+        })
+        
+        
+        filteredUserNames = userIDArray
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        
+        super.viewDidLoad()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.dismiss(animated: false, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         // #warning Incomplete implementation, return the number of rows
         return theUser.friends.count
-    }
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+        
+        guard let usernames = filteredUserNames else {
+            return 0
+        }
+        return usernames.count
+        
 
-    
+
+
+    /*
+=======
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let friend = theUser.friends[indexPath.row]
         cell.textLabel?.text = friend.username
 
         // Configure the cell...
+ 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Prototype2", for: indexPath)
         
+        if let usernamesArray = filteredUserNames?.sorted() {
+            let cellName = ("\(String(describing: usernamesArray[indexPath.row]))")
+            cell.textLabel?.text = cellName
+        }
         return cell
     }
     
@@ -54,44 +133,102 @@ class FriendListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
-    }
     */
 
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
         return true
+ 
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text, !searchText.isEmpty {
+            filteredUserNames = userIDArray.filter { individual in
+                return individual.lowercased().contains(searchText.lowercased())
+                //puts everything in same case for effective searching
+            }
+            
+        } else {
+            filteredUserNames = userIDArray
+            //since the tableview only displayed what has been searched (filtered), if there are no searches, filtered = all
+        }
+        tableView.reloadData()
+        //reloads tableview with new data given by searching
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Friends"
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        username = filteredUserNames![indexPath.row]
+        
+        print(username)
+        self.performSegue(withIdentifier: "ViewFriend", sender: nil)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        filteredUserNames = userIDArray.sorted()
+        super.viewWillAppear(true)
+        self.tableView.reloadData()
+        
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let DestVC = segue.destination as! FriendDetailViewController2
+        DestVC.username = username
     }
-    */
+    
+    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
+    /*
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
+    /*
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+      */*/*/
+     }
 
+    
 }
+
+
