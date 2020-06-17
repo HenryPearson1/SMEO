@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class User {
     // info about events
@@ -15,39 +16,23 @@ class User {
     var bio: String
     var ownEvents = [Event]()
     var goingToEvents = [Event]()
+    var friends = [User]()
     
-    init(inputEmail: String, inputUserName: String, inputBio: String) {
+    init(inputEmail: String, inputUserName: String, inputBio: String, inputOwnEvents: Array<Event>, inputGoingToEvents: Array<Event>) {
         email = inputEmail
         username = ""
         bio = ""
+        ownEvents = inputOwnEvents
+        goingToEvents = inputGoingToEvents
     }
     
-    func goToEvent(eventGoing: Event) {
-        goingToEvents.append(eventGoing)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        eventGoing.addEvent(inputUser: self)
->>>>>>> parent of 9fd0826... Fix merge conflict
-        eventGoing.going.append(self)
-=======
-        eventGoing.addEvent(inputUser: self)
->>>>>>> parent of c6f3051... fixed issues
+//    func goToEvent(eventGoing: Event) {
+//        goingToEvents.append(eventGoing)
+//        eventGoing.addEvent(inputUser: self)
+//    }
+    
+    func addFriend(friendToAdd: User) {
+        friends.append(friendToAdd)
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        eventGoing.addEvent(inputUser: self)
-    }
->>>>>>> parent of ed7ab64... Merge branch 'master' of https://github.com/HenryPearson1/SMEO
-    */
-=======
     
->>>>>>> parent of 0991ade... Added Save UIBarButtonItem
-    
-<<<<<<< HEAD
-=======
-    
->>>>>>> parent of c6f3051... fixed issues
 }

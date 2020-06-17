@@ -6,7 +6,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseDatabase
 
 
 class RegisterViewController: UIViewController {
@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var userNameField: UITextField!
     
     var valid: Bool = false
     var isInput: Bool = false
@@ -43,6 +44,11 @@ class RegisterViewController: UIViewController {
             valid = false
             isInput = false
         }
+        else if userNameField.text == ""{
+            present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Please enter username"), animated: true, completion: nil)
+            valid = false
+            isInput = false
+        }
         else{
             isInput = true
         }
@@ -52,7 +58,15 @@ class RegisterViewController: UIViewController {
                 valid = false
             }
             else if validation.isValidPass(passStr: passField.text!) == false{
-                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum six characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Invalid password \n Password must consist of minimum eight characters, at least one uppercase letter, one lowercase letter and one number"), animated: true, completion: nil)
+                valid = false
+            }
+            else if userNameField.text!.count >= 20{
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is more than 20 characters"), animated: true, completion: nil)
+                valid = false
+            }
+            else if userNameField.text!.count <= 4{
+                present(alert.defaultAlert(alertTitle: "Warning", alertMessage: "Username is less than 4 characters"), animated: true, completion: nil)
                 valid = false
             }
             else{
@@ -61,14 +75,30 @@ class RegisterViewController: UIViewController {
         }
         
         if valid == true{
-            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!) { (user, error) in
+            //upload username to firebase below
+            //Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!, username: userNameField.text!)
+            Auth.auth().createUser(withEmail: emailField.text!, password: passField.text!){ (user, error) in
                 if error != nil{
                     print(error as Any)
                 }
                 else{
                     print("Registration Success")
+                    let ref = Database.database().reference()
+                    let specificEmailRef = ref.child("Users").child(self.userNameField.text!).child("Email")
+                    specificEmailRef.setValue(self.emailField.text!)
+                    let specificUsernameRef = ref.child("Users").child(self.userNameField.text!).child("Username")
+                    specificUsernameRef.setValue(self.userNameField.text!)
+                    let specificBioRef = ref.child("Users").child(self.userNameField.text!).child("Bio")
+                    specificBioRef.setValue("")
+                    let specificOwnEventsRef = ref.child("Users").child(self.userNameField.text!).child("Own Events")
+                    specificOwnEventsRef.setValue("")
+                    let specificGoingToEventsRef = ref.child("Users").child(self.userNameField.text!).child("Events Going To")
+                    specificGoingToEventsRef.setValue("")
+                    let specificFriendsArray = ref.child("Users").child(self.userNameField.text!).child("Friends")
+                    specificFriendsArray.setValue([User]())
                     self.emailField.text = ""
                     self.passField.text = ""
+                    self.userNameField.text = ""
                     self.present(self.alert.defaultAlert(alertTitle: "Info", alertMessage: "Registration Success"), animated: true, completion: nil)
                     
                     
